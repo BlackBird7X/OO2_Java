@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.Fichada" table="fichada">
+		<id name="idFichada" column="idfichada">
+			<generator class="identity"/>
+		</id>
+		<property name="fecha" column="fecha" type="LocalDate"/>
+		<property name="hora" column="hora" type="LocalTime"/>
+		<property name="entrada" column="entrada" type="boolean"/>
+		<many-to-one name="empleado" class="datos.Empleado" column="idempleado" not-null="true"/>
+	</class>
+</hibernate-mapping>
