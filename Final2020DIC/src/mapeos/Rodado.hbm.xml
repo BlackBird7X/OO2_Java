@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Rodado" table="rodado">
+    <id column="idRodado" name="idRodado">
+      <generator class="identity"/>
+    </id>
+    <property column="dominio" name="dominio" type="string"/>
+    <property column="categoria" name="categoria" type="int"/>
+    <many-to-one name="abonado" class="datos.Abonado" column="idAbonado" not-null="true" fetch="join" />  
+</class>    
+</hibernate-mapping>

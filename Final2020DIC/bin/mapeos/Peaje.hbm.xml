@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name = "datos.Peaje" table = "peaje" >
+		<id column = "idPeaje" name = "idPeaje" >
+		<generator class = "identity" />
+		</id >
+		<property column="fecha" name="fecha" type="LocalDate" />
+		<property column="hora" name="hora" type="LocalTime" />
+		<property column="precio" name="precio" type="double" />
+
+    <joined-subclass name="datos.Manual" table="manual">
+      <key column="idManual" />
+      <property column="codCabina" name="codCabina" type="string" />
+    </joined-subclass>
+
+    <joined-subclass name="datos.Telepeaje" table="telepeaje">
+      <key column="idTelepeaje" />
+      <property column="lector" name="lector" type="string" />
+        <many-to-one name="rodado" class="datos.Rodado" column="idRodado" not-null="true" />
+    </joined-subclass>
+	
+</class >
+</hibernate-mapping>
