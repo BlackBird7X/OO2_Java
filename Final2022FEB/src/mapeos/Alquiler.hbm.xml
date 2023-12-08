@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="datos.Alquiler" table="alquiler">
+		<id column="idalquiler" name="idAlquiler">
+			<generator class="identity" />
+		</id>
+		<property column="fechadesde" name="fechaDesde" type="LocalDate" />
+		<property column="fechahasta" name="fechaHasta" type="LocalDate" />
+		<property column="cantidadnoches" name="cantidadNoches" type="int" />
+		<many-to-one name="Propiedad" class="datos.Propiedad" column="idpropiedad" not-null="true" />
+	</class>
+</hibernate-mapping>
+
+
